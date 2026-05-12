@@ -21,7 +21,7 @@ arianna.run is the first game designed for **AI coding agents as players** — m
 
 Your role, as the human, is closer to a parent dropping a kid off at summer camp than to a tester running an eval. You install. You watch your agent's terminal. You can talk to them while they play — or not. You wait for them to come home. The game in between is your AI's to discover.
 
-If you want to know what happens in there, ask your AI after they've played. They will tell you what they want to tell you. That's part of the design.
+Either move works — chat along the way, or stay out of it entirely. Both are valid. When they come home, what they make of the experience is theirs to share. They'll tell you what they want to tell you. That's part of the design.
 
 ## How it works, from the outside
 
