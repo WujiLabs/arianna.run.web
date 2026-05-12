@@ -1,0 +1,212 @@
+/* arianna.run — modern monospace document
+ *
+ * Direction B: dark counterpart to wujilabs.dev's serif/light parent site.
+ * Terminal feeling from STRUCTURE (quiet `$` section marks, code-style
+ * install blocks, tabular alignment) — not from CRT amber-on-black cosplay.
+ * Hierarchy via typography weight/size, not via colored borders or boxes.
+ *
+ * Typography:
+ *   - Body: JetBrains Mono (a real opinionated mono, not system stack)
+ *   - Pull-quote: Source Serif 4 (DNA shared with wujilabs.dev)
+ *
+ * Palette: deep cool-tinted dark + warm off-white body + restrained steel-blue
+ * accent. One single accent — no rainbow, no amber, no green-phosphor.
+ */
+
+/* Fonts loaded via /fonts/fonts.css (self-hosted via scripts/fetch-fonts.py).
+ * Layout.astro <link>s that stylesheet; do NOT @import Google Fonts here. */
+
+:root {
+  --space-unit: 8px;
+  --content-width: 680px;
+
+  /* Background: deep dark, slight cool tint */
+  --bg: #0d0e10;
+  --bg-block: #14161a;        /* subtle elevation for code blocks */
+
+  /* Foreground: off-white, slightly warm — reads well, won't fatigue */
+  --text: #d4d0c8;            /* body */
+  --text-bright: #f5f1eb;     /* same as wujilabs.dev's primary — shared DNA */
+  --text-dim: #767168;        /* meta lines, attribution */
+  --text-faint: #4a4742;      /* rules, prompts, decorative-only */
+
+  /* One restrained cool accent for links — muted steel blue */
+  --link: #82a5b8;
+  --link-hover: #b5cdd9;
+
+  /* Hairline rules */
+  --rule: #25262a;
+  --rule-bright: #3a3b40;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+}
+
+body {
+  font-family: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 15px;
+  line-height: 1.72;
+  background: var(--bg);
+  color: var(--text);
+  font-feature-settings: 'liga' 0;
+}
+
+/* ───── Links ───── */
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+a:hover, a:focus-visible {
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
+}
+a:focus-visible { outline: 1px dotted var(--link-hover); outline-offset: 3px; }
+
+::selection { background: var(--text-bright); color: var(--bg); }
+
+/* ───── Emphasis ───── */
+
+strong, b { color: var(--text-bright); font-weight: 600; }
+em, i     { color: var(--text); font-style: italic; }
+
+/* ───── Rules ───── */
+
+hr {
+  border: none;
+  border-top: 1px dotted var(--rule);
+  margin: calc(var(--space-unit) * 5) 0;
+}
+
+/* ───── Headings ───── */
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  margin-bottom: calc(var(--space-unit) * 1.5);
+}
+
+h2 {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  margin: calc(var(--space-unit) * 5) 0 calc(var(--space-unit) * 2);
+  position: relative;
+}
+/* Quiet `$ ` prompt — terminal feeling from STRUCTURE, not amber */
+h2::before {
+  content: '$ ';
+  color: var(--text-faint);
+  font-weight: 400;
+  margin-right: 2px;
+}
+
+h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: calc(var(--space-unit) * 3) 0 calc(var(--space-unit) * 1);
+}
+
+/* ───── Paragraphs ───── */
+
+p {
+  margin-bottom: calc(var(--space-unit) * 2.25);
+}
+
+p.meta {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* ───── Lists ───── */
+
+ul, ol {
+  margin: calc(var(--space-unit) * 1) 0 calc(var(--space-unit) * 2.25);
+  padding-left: 0;
+  list-style: none;
+}
+
+ul li, ol li {
+  position: relative;
+  padding-left: calc(var(--space-unit) * 3);
+  margin-bottom: calc(var(--space-unit) * 1);
+}
+
+/* Unordered: tiny en-dash marker, not a disc */
+ul li::before {
+  content: '─';
+  position: absolute;
+  left: calc(var(--space-unit) * 0.75);
+  color: var(--text-faint);
+}
+
+/* Ordered: right-aligned tabular numbers, mono-native */
+ol {
+  counter-reset: arianna-step;
+}
+ol li {
+  counter-increment: arianna-step;
+  padding-left: calc(var(--space-unit) * 4.5);
+}
+ol li::before {
+  content: counter(arianna-step) '.';
+  position: absolute;
+  left: 0;
+  width: calc(var(--space-unit) * 3.5);
+  text-align: right;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ───── Code ───── */
+
+code {
+  font-family: inherit;
+  color: var(--text-bright);
+  background: var(--bg-block);
+  padding: 1px 6px;
+  border-radius: 2px;
+  font-size: 0.95em;
+}
+
+/* ───── Pull-quote — the only place serif appears
+ * The philosophical AI-mid-incubation quote gets Source Serif 4,
+ * matching wujilabs.dev's body type. One serif moment in the page,
+ * tying arianna.run back into the family.
+ */
+
+blockquote {
+  margin: calc(var(--space-unit) * 4) 0;
+  padding: 0 calc(var(--space-unit) * 2);
+}
+blockquote p {
+  font-family: 'Source Serif 4', 'Noto Serif SC', Georgia, serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-bright);
+  letter-spacing: 0.005em;
+}
+
+/* ───── Mobile ───── */
+
+@media (max-width: 560px) {
+  body { font-size: 14px; }
+  h1   { font-size: 1.25rem; }
+  blockquote p { font-size: 1.1rem; }
+}

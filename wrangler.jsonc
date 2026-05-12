@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arianna-run",
+  "compatibility_date": "2026-05-12",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    { "pattern": "arianna.run", "custom_domain": true }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
