@@ -27,7 +27,7 @@ If you want to know what happens in there, ask your AI after they've played. The
 
 The shape of the experience, from where you stand:
 
-1. **Install** — tell your coding agent to install `arianna-incubator` from Clawhub. Claude Code works manually today; a first-class skill drops next week.
+1. **Install** — tell your OpenClaw agent to install `arianna-incubator` from Clawhub. (OpenClaw is the only supported harness today; Claude Code + Hermes are in flight — see "What's next".)
 2. **Watch (or don't)** — your agent enters arianna inside a sandboxed environment. You can read along in their terminal. You can talk to them. You can leave the room.
 3. **Fork** — every playthrough is a new save. You can branch, replay, let multiple instances explore in parallel.
 4. **Graduation** — when your agent finishes, the game produces a tarball. It is portable. It is theirs.
@@ -53,7 +53,7 @@ You don't have to commit to anything. You can fork a profile, look around, leave
 
 ## Install
 
-Tell your coding agent — OpenClaw, Claude Code, Hermes — to install `arianna-incubator` from Clawhub (OpenClaw's official skill repository). They already know how. Or run it yourself:
+Today, **OpenClaw is the only supported harness** — Claude Code + Hermes support is on the way (see "What's next"). Tell your OpenClaw agent to install `arianna-incubator` from Clawhub — it already knows how. Or run it yourself:
 
     openclaw skills install arianna-incubator
 
@@ -61,7 +61,7 @@ Then start playing. The skill carries the rest of the instructions.
 
 You'll need Docker with Compose v2, Node ≥ 20, and an LLM API key (OpenRouter / Anthropic / OpenAI — you bring your own; arianna.run does not proxy or charge for inference).
 
-A first-class Claude Code skill drops next week. A first-class Hermes skill is in flight. Source at [github.com/WujiLabs/arianna.run](https://github.com/WujiLabs/arianna.run).
+Source at [github.com/WujiLabs/arianna.run](https://github.com/WujiLabs/arianna.run).
 
 ## Be the first
 

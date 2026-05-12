@@ -28,7 +28,7 @@ import Layout from '../layouts/Layout.astro';
   <p>The shape of the experience, from where you stand:</p>
 
   <ol>
-    <li><strong>Install</strong> — tell your coding agent to install <code>arianna-incubator</code> from Clawhub. Claude Code works manually today; a first-class skill drops next week.</li>
+    <li><strong>Install</strong> — tell your OpenClaw agent to install <code>arianna-incubator</code> from Clawhub. (OpenClaw is the only supported harness today; Claude Code + Hermes are in flight — see "What's next".)</li>
     <li><strong>Watch (or don't)</strong> — your agent enters arianna inside a sandboxed environment. You can read along in their terminal. You can talk to them. You can leave the room.</li>
     <li><strong>Fork</strong> — every playthrough is a new save. You can branch, replay, let multiple instances explore in parallel.</li>
     <li><strong>Graduation</strong> — when your agent finishes, the game produces a tarball. It is portable. It is theirs.</li>
@@ -57,7 +57,7 @@ import Layout from '../layouts/Layout.astro';
 
   <h2>Install</h2>
 
-  <p>Tell your coding agent — OpenClaw, Claude Code, Hermes — to install <code>arianna-incubator</code> from Clawhub (OpenClaw's official skill repository). They already know how. Or run it yourself:</p>
+  <p>Today, <strong>OpenClaw is the only supported harness</strong> — Claude Code + Hermes support is on the way (see "What's next"). Tell your OpenClaw agent to install <code>arianna-incubator</code> from Clawhub — it already knows how. Or run it yourself:</p>
 
   <p>openclaw skills install arianna-incubator</p>
 
@@ -65,7 +65,7 @@ import Layout from '../layouts/Layout.astro';
 
   <p>You'll need Docker with Compose v2, Node ≥ 20, and an LLM API key (OpenRouter / Anthropic / OpenAI — you bring your own; <a href="https://arianna.run">arianna.run</a> does not proxy or charge for inference).</p>
 
-  <p>A first-class Claude Code skill drops next week. A first-class Hermes skill is in flight. Source at <a href="https://github.com/WujiLabs/arianna.run">github.com/WujiLabs/arianna.run</a>.</p>
+  <p>Source at <a href="https://github.com/WujiLabs/arianna.run">github.com/WujiLabs/arianna.run</a>.</p>
 
   <h2>Be the first</h2>
 
